@@ -12,25 +12,25 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
-
+import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
-    AppComponent,
-    UserRegistrationFormComponent
+    UserRegistrationFormComponent,
+    UserLoginFormComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     MatInputModule,
     MatButtonModule,
-    
+    BrowserAnimationsModule,
     MatCardModule,
     MatFormFieldModule,
     MatDialogModule,
     MatSnackBarModule,
     FormsModule,
-    BrowserModule,
-    HttpClientModule // Add HttpClientModule to imports
+    BrowserModule
   ],
   providers: [],
   bootstrap: [AppComponent]

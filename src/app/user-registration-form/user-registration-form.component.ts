@@ -9,10 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 @Component({
   selector: 'app-user-registration-form',
   templateUrl: './user-registration-form.component.html',
-  styleUrls: ['./user-registration-form.component.scss'],
-  imports: [
-    MatCardModule,
-  ]
+  styleUrls: ['./user-registration-form.component.scss']
 })
 export class UserRegistrationFormComponent implements OnInit {
   @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };

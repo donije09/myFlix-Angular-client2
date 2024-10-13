@@ -9,9 +9,6 @@ import { MatCardModule } from '@angular/material/card';
   selector: 'app-user-login-form',
   templateUrl: './user-login-form.component.html',
   styleUrls: ['./user-login-form.component.scss'],
-  imports: [
-    MatCardModule,
-  ]
 })
 export class UserLoginFormComponent implements OnInit {
   @Input() loginData = { Username: '', Password: '' };
