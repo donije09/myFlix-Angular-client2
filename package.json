@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:myFlix-Angular-client1": "node dist/my-flix-angular-client1/server/server.mjs"
+    "serve:ssr:myFlix-Angular-client1": "node dist/my-flix-angular-client1/server/server.mjs",
+    "docs": "typedoc --entryPointStrategy expand --out docs ./src"
   },
   "private": true,
   "dependencies": {
@@ -41,6 +42,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "typedoc": "^0.26.9",
     "typescript": "~5.5.2"
   }
 }

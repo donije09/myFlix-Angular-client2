@@ -14,9 +14,21 @@ import { AppComponent } from './app.component';
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
 import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+/**
+ * The main module of the application.
+ * 
+ * This module declares and imports all the components and modules
+ * that the app requires. It bootstraps the root AppComponent.
+ */
 @NgModule({
   declarations: [
+    /**
+     * The UserRegistrationFormComponent handles user registration.
+     */
     UserRegistrationFormComponent,
+    /**
+     * The UserLoginFormComponent handles user login.
+     */
     UserLoginFormComponent
   ],
   imports: [
