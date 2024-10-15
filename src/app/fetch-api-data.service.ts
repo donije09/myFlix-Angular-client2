@@ -24,4 +24,13 @@ export class FetchApiDataService {
   getAllMovies(): Observable<any> {
     return this.http.get(`${apiUrl}/movies`);
   }
+  getUser(username: string): Observable<any> {
+    return this.http.get(`${apiUrl}/users/${username}`);
+  }
+  deleteUser(username: string): Observable<any> {
+    return this.http.delete(`${apiUrl}/users/${username}`);
+  }
+  editUser(username: string, userData: any): Observable<any> {
+    return this.http.put(`${apiUrl}/users/${username}`, userData);
+  }
 }
