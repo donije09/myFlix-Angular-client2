@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class FetchApiDataService {
-  private apiUrl = 'https://glacial-retreat-35130-2f56298b8e37.herokuapp.com/';
+  private apiUrl = 'https://glacial-retreat-35130-2f56298b8e37.herokuapp.com';
 
   constructor(private http: HttpClient) {}
 

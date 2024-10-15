@@ -2,12 +2,13 @@ import { Component, OnInit, Input } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog'; // Import to close the dialog
 import { FetchApiDataService } from '../fetch-api-data.service'; // Import API calls
 import { MatSnackBar } from '@angular/material/snack-bar'; // Import to show notifications
-
+import { Router } from '@angular/router';
 /**
  * The `UserLoginFormComponent` is responsible for handling user login.
  * It collects user input (username and password) and sends it to the backend to authenticate the user.
  * Feedback is provided to the user via a modal dialog and snack bars.
  */
+
 @Component({
   selector: 'app-user-login-form',
   templateUrl: './user-login-form.component.html',
@@ -30,7 +31,8 @@ export class UserLoginFormComponent implements OnInit {
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserLoginFormComponent>,
-    public snackBar: MatSnackBar
+    public snackBar: MatSnackBar,
+    private router: Router
   ) { }
 
   /**
@@ -45,6 +47,7 @@ export class UserLoginFormComponent implements OnInit {
    * On error, an error message is displayed to the user.
    */
   loginUser(): void {
+    this.router.navigate(['movies']);
     this.fetchApiData.userLogin(this.loginData).subscribe(
       (result) => {
         // Logic for successful login goes here

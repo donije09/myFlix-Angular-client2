@@ -8,20 +8,30 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-
+import { MovieCardComponent } from './movie-card/movie-card.component';
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
 import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { AppRoutingModule } from './app-routing.module';
 /**
  * The main module of the application.
  * 
  * This module declares and imports all the components and modules
  * that the app requires. It bootstraps the root AppComponent.
  */
+const appRoutes: Routes = [
+  { path: 'welcome', component: WelcomePageComponent },
+  { path: 'movies', component: MovieCardComponent },
+  { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
+];
 @NgModule({
   declarations: [
+    AppComponent,
     /**
      * The UserRegistrationFormComponent handles user registration.
      */
@@ -29,13 +39,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     /**
      * The UserLoginFormComponent handles user login.
      */
-    UserLoginFormComponent
+    UserLoginFormComponent,
+    MovieCardComponent,
+    WelcomePageComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([]),
+    AppRoutingModule,
+    RouterModule.forRoot(appRoutes),
     HttpClientModule,
     MatInputModule,
+    MatIconModule,
     MatButtonModule,
     BrowserAnimationsModule,
     MatCardModule,
@@ -45,7 +59,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     BrowserModule
   ],
-  providers: [],
+  providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
