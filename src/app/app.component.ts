@@ -3,8 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
 import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
 import { RouterModule } from '@angular/router'; // Import RouterModule
-
-
+import { NavbarComponent } from './navbar/navbar.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,6 +13,7 @@ import { RouterModule } from '@angular/router'; // Import RouterModule
     RouterModule, // Import RouterModule for router-outlet
     UserRegistrationFormComponent,  // Import standalone components here
     UserLoginFormComponent,
+    NavbarComponent
   ],
 })
 export class AppComponent {

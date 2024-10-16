@@ -15,6 +15,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MessageBoxComponent } from './message-box/message-box.component';
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
@@ -26,7 +29,8 @@ const appRoutes: Routes = [
   declarations: [
     MovieCardComponent,
     WelcomePageComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    MessageBoxComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +39,7 @@ const appRoutes: Routes = [
     MatInputModule,
     MatIconModule,
     MatButtonModule,
+    MatToolbarModule,
     BrowserAnimationsModule,
     MatCardModule,
     MatFormFieldModule,

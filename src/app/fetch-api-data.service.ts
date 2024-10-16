@@ -33,4 +33,10 @@ export class FetchApiDataService {
   editUser(username: string, userData: any): Observable<any> {
     return this.http.put(`${apiUrl}/users/${username}`, userData);
   }
+  removeFavoriteMovie(username: string, movieId: string): Observable<any> {
+    return this.http.delete(`${apiUrl}/users/${username}/movies/${movieId}`);
+  }
+  addFavoriteMovie(username: string, movieId: string): Observable<any> {
+    return this.http.post(`${apiUrl}/users/${username}/movies/${movieId}`, {});
+  }
 }
