@@ -39,4 +39,5 @@ export class FetchApiDataService {
   addFavoriteMovie(username: string, movieId: string): Observable<any> {
     return this.http.post(`${apiUrl}/users/${username}/movies/${movieId}`, {});
   }
+  
 }

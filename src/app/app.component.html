@@ -1,2 +1,8 @@
-<app-navbar></app-navbar>
-<router-outlet></router-outlet>
+<!-- Conditionally render the navbar based on the showNavbar flag -->
+<div *ngIf="showNavbar">
+    <app-navbar></app-navbar>
+  </div>
+  
+  <!-- Display the main content -->
+  <router-outlet></router-outlet>
+  

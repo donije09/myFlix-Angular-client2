@@ -27,39 +27,29 @@ export class MovieCardComponent implements OnInit {
       this.movies = resp;
       const user = JSON.parse(localStorage.getItem("user") || "{}");
       this.movies.forEach((movie: any) => {
+        // Mark movies as favorites if they are in the user's favoriteMovies list
         movie.isFavorite = user.favoriteMovies.includes(movie._id);
       });
-      console.log(this.movies);
     });
-  }
-
-  logout(): void {
-    this.router.navigate(["welcome"]);
-    localStorage.removeItem("user");
-  }
-
-  redirectProfile(): void {
-    this.router.navigate(["profile"]);
   }
 
   modifyFavoriteMovies(movie: any): void {
     let user = JSON.parse(localStorage.getItem("user") || "{}");
-    let icon = document.getElementById(`${movie._id}-favorite-icon`);
 
-    if (user.favoriteMovies.includes(movie._id)) {
-      this.fetchApiData.removeFavoriteMovie(user.id, movie.title).subscribe(res => {
-        icon?.setAttribute("fontIcon", "favorite_border");
+    if (movie.isFavorite) {
+      this.fetchApiData.removeFavoriteMovie(user.username, movie._id).subscribe((res) => {
         console.log("Removed from favorites:", res);
-        user.favoriteMovies = res.favoriteMovies;
+        movie.isFavorite = false; // Update movie object to reflect removal
+        user.favoriteMovies = res.favoriteMovies; // Update local user favoriteMovies
         localStorage.setItem("user", JSON.stringify(user));
       }, err => {
         console.error(err);
       });
     } else {
-      this.fetchApiData.addFavoriteMovie(user.id, movie.title).subscribe(res => {
-        icon?.setAttribute("fontIcon", "favorite");
+      this.fetchApiData.addFavoriteMovie(user.username, movie._id).subscribe((res) => {
         console.log("Added to favorites:", res);
-        user.favoriteMovies = res.favoriteMovies;
+        movie.isFavorite = true; // Update movie object to reflect addition
+        user.favoriteMovies = res.favoriteMovies; // Update local user favoriteMovies
         localStorage.setItem("user", JSON.stringify(user));
       }, err => {
         console.error(err);
@@ -81,7 +71,7 @@ export class MovieCardComponent implements OnInit {
     this.dialog.open(MessageBoxComponent, {
       data: {
         title: movie.director,
-        content: movie.genre.description
+        content: movie.director.bio
       },
       width: "400px"
     });
